@@ -26,7 +26,7 @@ class modalist extends Component {
   }
 
   render() {
-    const { toggleHandler } = this
+    const { toggleHandler, props } = this
     const { toggleState } = this.state
     const { toggler, component } = this.props
     return <div className='modalist' style={this.getModalistStyle()}>
@@ -34,6 +34,7 @@ class modalist extends Component {
       {toggleState && <Modal
         toggleHandler={toggleHandler}
         component={component()}
+        {...props}
       />}
     </div>
   }
@@ -54,7 +55,7 @@ class Modal extends Component {
     }
   }
 
-  getModalStyle() {
+  getContainerStyle() {
     return {
       position: 'absolute',
       zIndex: 999,
@@ -100,16 +101,18 @@ class Modal extends Component {
   }
 
   render() {
-    const { component, toggleHandler } = this.props
+    const { toggleHandler, title, component } = this.props
     return <div className='modalist-wrapper' style={this.getWrapperStyle()}>
       <div
         className='modalist-backdrop'
         style={this.getBackdropStyle()}
         onClick={toggleHandler}
       />
-      <div className='modalist-container' ref='modal' style={this.getModalStyle()}>
-        <div className='modalist-header'>modal head <button onClick={toggleHandler}>close</button></div>
-        <div className='modalist-body' >{component}</div>
+      <div className='modalist-container' ref='modal' style={this.getContainerStyle()}>
+        <div className='modalist-header'>{title}
+          <a href='#' onClick={toggleHandler}>X</a>
+        </div>
+        <div className='modalist-body'>{component()}</div>
         <div className='modalist-footer'>modal foot</div>
       </div>
     </div>

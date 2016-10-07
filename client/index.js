@@ -10,6 +10,7 @@ Meteor.startup(() => {
     <Modalist
       toggler={onClick => <button onClick={onClick}>modal 1</button>}
       component={() => <div>modal 1</div>}
+      title='wow we can custom title'
     />
 
     <Modalist
