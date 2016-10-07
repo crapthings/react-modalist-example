@@ -82,6 +82,12 @@ class Modal extends Component {
     const { innerWidth, innerHeight } = window
     modal.style.top = (innerHeight / 2 - modal.clientHeight / 2) + 'px'
     modal.style.left = (innerWidth / 2 - modal.clientWidth / 2) + 'px'
+    if (modal.offsetParent !== document.body) {
+      console.log(1)
+      modal.style.top = 0
+      modal.style.left = 0
+    }
+    console.dir(modal)
   }
 
   toggleModal(e) {

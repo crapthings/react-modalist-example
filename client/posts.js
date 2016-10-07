@@ -20,7 +20,7 @@ const comp = ({ posts }) => <table>
     {posts.map((post, idx) => <tr key={post._id}>
       <td>{idx + 1}</td>
       <td>{post.title}</td>
-      <td width='200'>
+      <td>
         <Modalist
           toggler={onClick => <a href='#' onClick={onClick}>edit</a>}
           component={() => <Form {...post} />}
