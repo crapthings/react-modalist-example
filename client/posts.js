@@ -10,15 +10,21 @@ const Form = (post) => <form>
 </form>
 
 const comp = ({ posts }) => <table>
+  <thead>
+    <tr>
+      <th>no.</th>
+      <th>title</th>
+    </tr>
+  </thead>
   <tbody>
-    {posts.map((d, idx) => <tr key={d._id}>
+    {posts.map((post, idx) => <tr key={post._id}>
       <td>{idx + 1}</td>
-      <td>{d.title}</td>
+      <td>{post.title}</td>
       <td width='200'>
         <Modalist
           toggler={onClick => <a href='#' onClick={onClick}>edit</a>}
-          component={() => <Form {...d} />}
-          title={d.title}
+          component={() => <Form {...post} />}
+          title={post.title}
         />
       </td>
     </tr>)}

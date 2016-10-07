@@ -13,6 +13,7 @@ table {
 th, td {
   padding: 8px;
   border: 1px solid #efefef;
+  text-align: left;
 }
 
 input, textarea {

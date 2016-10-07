@@ -20,11 +20,11 @@ Meteor.startup(() => {
       component={() => <div>modal 2</div>}
     />
 
-    <br />
+    <br /> <br /> <br />
 
     <Modalist
-      toggler={onClick => <a href='#' onClick={onClick}>modal 3</a>}
-      component={() => <div>modal 3</div>}
+      toggler={onClick => <a href='#' onClick={onClick}>nested modal</a>}
+      component={() => <Posts />}
     />
 
     <Posts />
