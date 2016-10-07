@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 
 import Modalist from '/modalist'
 
+import Posts from './posts'
+
 Meteor.startup(() => {
   ReactDOM.render(<div>
 
@@ -25,5 +27,8 @@ Meteor.startup(() => {
       component={() => <div>modal 3</div>}
     />
 
+    <Posts />
+
   </div>, $('#container')[0])
 })
+
